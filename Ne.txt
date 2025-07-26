@@ -1,0 +1,164 @@
+Next
+
+Types of Routing in Next.js
+
+> Filename and function can be different 
+
+
+
+🔹 1. Static Routing
+Creates a route for every file in the pages/ or app/ directory.
+
+Example (Pages Router):
+/pages/about.js     → /about
+/pages/contact.js   → /contact
+
+export default function About() {
+    return <h1>This is the About Page</h1>;
+}
+ 
+ 
+Example (App Router):
+
+/app/about/page.js  → /about
+/app/contact/page.js  → /contact
+
+export default function About2Page() {
+  return <h1>This is the About Page (App Router)</h1>;
+}
+
+
+
+🔹 2. Dynamic Routing
+Routes that use dynamic parameters using square brackets.
+
+Pages Router:
+/pages/blog/[slug].js   → /blog/hello-world
+
+import { useRouter } from 'next/router';
+export default function BlogPost() {
+  const router = useRouter();
+  const { slug } = router.query;
+  return <h1>Blog Post: {slug}</h1>;//hello-world
+}
+
+
+App Router:
+
+/app/blog/[slug]/page.js → /blog/hello-world
+
+export default async function  BlogPost({ params }) {
+  const params1 = await params;
+  return <h1>Blog Post: {params1.slug}</h1>;//hello-world
+}
+
+
+
+🔹 3. Catch-All & Optional Catch-All Routing, ? cant be used in it. separated by / only, slug urls are allowed.
+Catch-All: ... captures multiple segments
+
+Optional Catch-All: [[...param]] makes it optional
+
+Pages Router:
+
+/pages/docs/[...params].js      → /docs/a/b/c  //required at least one param
+/pages/docs/[[...params]].js    → /docs or /docs/a/b //params not required but optional
+
+// pages/docs/[[...params]].js
+import { useRouter } from 'next/router';
+export default function DocsPage() {
+  const router = useRouter();
+  const { params = [] } = router.query;
+    console.log(params);
+  return (
+    <div>
+      <h1>Docs</h1>
+      <p>Path: {params.join(' / ') || 'Home'}</p>
+    </div>
+  );
+}
+
+
+
+App Router:
+
+/app/docs/[...params]/page.js
+/app/docs/[[...params]]/page.js /docs or /docs/aa/bb/cc/dd
+
+export default function Docs({ params }) {
+  return <p>Optional Path: {params.params?.join(" / ") || "Home"}</p>;//Optional Path: aa / bb / cc / dd
+}
+
+
+
+🔹 4. Nested Routing (App Router only)
+Automatically handled through folder structure and layouts.
+
+/app/dashboard/layout.js         → layout for dashboard/*
+export default async function  BlogPost({ children }) {
+    return <><h1>Header for all dashboard</h1>{children}</>;
+  }
+
+/app/dashboard/page.js           → /dashboard
+export default async function  BlogPost() {
+    return <h1>Dashboard Page</h1>;
+}
+
+/app/dashboard/settings/page.js → /dashboard/settings
+export default async function  BlogPost() {
+    return <h1>Dashboard  Setting Page</h1>;
+}
+
+app/dashboard/settings/[slug]/page.js → dashboard/settings/hello
+export default async function  BlogPost({params}) {
+    const params1 = await params;
+    return <h1>Blog Post: {params1.slug}</h1>;//hello
+}
+
+
+🔹 5. Programmatic Routing (Client-side Navigation)
+Use next/router or useRouter hook to navigate programmatically.
+
+Pages Router:
+import { useRouter } from 'next/router';
+
+const router = useRouter();
+router.push('/about');
+
+App Router:
+Use <Link> or useRouter() from next/navigation.
+
+
+
+🔹 6. API Routes (Pages Router only)
+File-based serverless functions in /pages/api/.
+
+/pages/api/hello.js → GET /api/hello
+
+
+
+🔹 7. Middleware-based Routing
+Use middleware.js to rewrite, rrect, or protect routes at edge.
+
+js// middleware.js
+export function middleware(request) {
+  const isLoggn = checkAuth(request);
+  if (!isLoggn) return NextResponse.rrect('/login');
+}
+
+
+
+🔹 8. Rewrites and Rrects (Custom Routing)
+Defined in next.config.js.
+
+jsmodule.exports = {
+  async rrects() {
+    return [
+      {
+        source: '/old-about',
+        destination: '/about',
+        permanent: true,
+      },
+    ];
+  },
+};

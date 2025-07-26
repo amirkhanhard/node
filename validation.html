@@ -1,0 +1,26 @@
+<style>
+  .cke_notifications_area {
+    display: none;
+}
+</style>
+<div class='f_elements'>
+  <div id='inputFormFormalElements'>
+    <textarea name="f_element[]" id="f_element[]" class="ckeditor"></textarea>
+    <button id="removeFormalElement" type="button" class="btn btn-danger">Remove</button>
+  </div>
+                    
+  <div id="newFormalElement"></div>
+  <button id="addFormalElement" type='button' class="btn btn-info">Add a slot</button>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+<script>
+$(document).on('click', '#addFormalElement', function(){
+        $("#newFormalElement").append('<div id="inputFormFormalElements"><textarea name="f_element[]" id="f_element[]" class="ckeditor"></textarea><button id="removeFormalElement" type="button" class="btn btn-danger">Remove</button>');
+        CKEDITOR.replaceAll('ckeditor');
+    });
+
+    $(document).on("click", "#removeFormalElement", function(){
+        $(this).closest('#inputFormFormalElements').remove();
+    });
+</script>

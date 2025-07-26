@@ -1,0 +1,149 @@
+Quest
+devDependencies
+
+
+
+=====> Nodemon
+Auto restart when change in required file.
+
+npm install -g nodemon
+
+
+npm install --save-dev nodemon
+//Adds nodemon to your project's devDependencies.
+
+run the file:
+
+nodemon server.js
+
+
+This file contains the configuration for the affected files.
+nodemon.json
+{
+  "watch": ["server.js","index.js","express.js","./express/express.js"],
+  "ext": "js json",
+  "ignore": ["node_modules"],
+  "exec": "node server.js"
+}
+
+
+=====> Middleware
+
+
+
+=====> CORS:-
+
+suppose your frontend is on http://localhost:5173/
+you backend is on http://localhost:5174
+
+then your frontend can not access data from backend unless cors policy is resolved.
+
+1. install cors in your backend to allow specific domains.
+
+npm install cors
+
+2.  Allow all request in backend.
+
+import cors from 'cors';
+app.use(cors());
+
+or
+
+app.use(cors({
+  origin: ['https://your-frontend-domain.com']
+}));
+
+
+
+
+==> 
+
+url: http://localhost:3000/products/1
+method: delete
+
+error: 
+{
+    "error": "Product not found"
+}
+
+success:
+{
+    "message": "Product deleted",
+    "product": {
+        "id": 1,
+        "name": "product1",
+        "description": "desription goes here",
+        "price": "$100.00"
+    }
+}
+
+
+==> 
+
+url: http://localhost:3000/products/1
+method: delete
+
+error: 
+{
+    "error": "Product not found"
+}
+
+success:
+{
+    "message": "Product deleted",
+    "product": {
+        "id": 1,
+        "name": "product1",
+        "description": "desription goes here",
+        "price": "$100.00"
+    }
+}
+
+==> 
+
+url: http://localhost:3000/products/
+method: post
+
+payload:
+{
+    "name": "Updated Product Name",
+    "description": "Updated description of the product",
+    "price": 2999
+}
+
+
+response:
+
+{
+    "id": 1,
+    "name": "Updated Product Name",
+    "description": "Updated description of the product",
+    "price": 2999
+}
+
+
+==> 
+
+url: http://localhost:3000/products/1
+method: put
+
+payload:
+{
+    "name": "Updated Product Name",
+    "description": "Updated description of the product",
+    "price": 2999
+}
+
+error:
+{
+    "error": "Product not found"
+}
+
+response:
+
+{
+    "id": 1,
+    "name": "Updated Product Name",
+    "description": "Updated description of the product",
+    "price": 2999
+}
