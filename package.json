@@ -1,0 +1,19 @@
+{
+  "name": "mq",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "bull": "^4.16.5",
+    "dotconfig": "^0.0.1-security",
+    "dotenv": "^17.2.2",
+    "mongoose": "^8.18.3"
+  }
+}
