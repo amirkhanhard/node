@@ -1,0 +1,35 @@
+<pre>
+Event Bubbeling:- Bottom → Top
+Event Bubbling:- In event bubbling, the event starts from the target element and bubbles up to the document root.
+Default behavior in JavaScript
+</pre>
+
+<div id="parent2" style="padding:20px; background-color:lightgreen;">
+    Parent Div2
+    <div id="parent1" style="padding:20px; background-color:gray;">
+        Parent Div1
+        <button id="child" style="padding:10px;">Click Me</button>
+    </div>
+</div>
+
+<script>
+document.getElementById("parent1").addEventListener("click", () => {
+    console.log("Parent1 clicked (bubbeling)");
+});
+
+document.getElementById("parent2").addEventListener("click", () => {
+    console.log("Parent2 clicked (bubbeling)");
+});
+
+document.getElementById("child").addEventListener("click", (e) => {
+    console.log("Child clicked");
+    // e.stopPropagation()
+});
+</script>
+
+
+<pre>
+Child clicked
+Parent1 clicked (bubbeling)
+Parent2 clicked (bubbeling)
+</pre>

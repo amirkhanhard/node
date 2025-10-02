@@ -1,0 +1,35 @@
+<pre>
+Event Capturing:- Top → Bottom
+In event capturing, the event starts from the document root and travels down to the target element. Bottom 
+To enable capturing, pass true as the third argument in addEventListener.
+</pre>
+<div id="parent2" style="padding:20px; background-color:lightgreen;">
+    Parent Div2
+    <div id="parent1" style="padding:20px; background-color:gray;">
+        Parent Div1
+        <button id="child" style="padding:10px;">Click Me</button>
+    </div>
+</div>
+
+<script>
+document.getElementById("parent1").addEventListener("click", () => {
+    console.log("Parent1 clicked (capturing)");
+}, true); // Enable capturing
+
+document.getElementById("parent2").addEventListener("click", () => {
+    console.log("Parent2 clicked (capturing)");
+}, true); // Enable capturing
+
+document.getElementById("child").addEventListener("click", () => {
+    console.log("Child clicked");
+});
+</script>
+
+<pre>
+Parent2 clicked (capturing)
+Parent1 clicked (capturing)
+Child clicked
+
+To stop propogation use this in both bubbeling and capturing:-
+e.stopPropagation();
+</pre>

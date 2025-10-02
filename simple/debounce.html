@@ -1,0 +1,50 @@
+<pre>
+Debounce is a JavaScript technique used to control the rate at which a function gets executed.
+It delays the execution of a function until after a certain period of inactivity.
+</pre>
+
+<br>
+
+<input type="text" name="name" >
+<script>
+    let a = document.getElementsByTagName("input")[0];
+    function hitApi(arg) {
+        console.log("hit api");
+        console.log(arg.toString());
+    }
+    let debounce = (func, delay) => {
+        let time = null;
+        return (...args) => {
+            clearTimeout(time);
+            time = setTimeout(()=> {
+                func.apply(this, args);
+            },delay);
+        }
+    }
+    let callNow = debounce(hitApi, 2000);
+    a.addEventListener("keyup", (e)=> {
+        callNow(e.target.value);
+    })
+
+</script>
+
+
+<!-- advanced debouncing: first time auto call. -->
+<script>
+// function debounce(func, delay, immediate = false) {
+//   let timeout;
+//   return function (...args) {
+//     const callNow = immediate && !timeout;
+//     clearTimeout(timeout);
+//     timeout = setTimeout(() => {
+//       timeout = null;
+//       if (!immediate) func.apply(this, args);
+//     }, delay);
+//     if (callNow) func.apply(this, args);
+//   };
+// }
+
+// const log = debounce(() => console.log("Clicked!"), 1000, true);
+
+// document.addEventListener("click", log);
+</script>

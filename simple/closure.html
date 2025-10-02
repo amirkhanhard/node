@@ -1,0 +1,25 @@
+<pre>
+ A closure is created when a function "remembers" the variables from its lexical scope even after the outer function
+has finished executing.
+Closures are formed automatically whenever you use a function inside another.
+They help maintain state across multiple function calls.
+They are heavily used in React hooks, Node.js callbacks, async code, functional programming. 
+</pre>
+
+<script>
+    function outer() {
+        let count = 0;   // outer function variable
+
+        function inner() {
+            count++;       // inner function uses outer variable
+            console.log(count);
+        }
+
+        return inner;
+    }
+
+    const counter = outer();
+    counter(); // 1
+    counter(); // 2
+    counter(); // 3
+</script>

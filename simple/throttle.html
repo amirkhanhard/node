@@ -1,0 +1,32 @@
+<pre>
+throttling:
+
+Throttling is a technique to limit how often a function executes.
+Unlike debounce (which waits until the activity stops), throttle ensures a function runs at regular intervals, 
+no matter how many times the event is triggered.
+</pre>
+<br>
+
+<button type="button" name="name" >ok</button>
+<script>
+    let a = document.getElementsByTagName("button")[0];
+    function hitApi(arg) {
+        console.log("hit api");
+        console.log(arg.toString());
+    }
+    let throtle = (func, delay) => {
+        let time = 0;
+        
+        return (...args) => {
+            let now = Date.now();
+            if(now - time >= delay) {
+                time = now;
+                func.apply(this, args);
+            }
+        }
+    }
+    let callNow = throtle(hitApi, 2000);
+    a.addEventListener("click", (e)=> {
+        callNow([e.target.innerHTML]);
+    });
+</script>
