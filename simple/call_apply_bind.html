@@ -1,0 +1,95 @@
+<pre>
+1. call()
+
+Invokes a function immediately.
+
+You can set the value of this and pass arguments individually.
+
+function greet(greeting, punctuation) {
+  console.log(greeting + " " + this.name + punctuation);
+}
+
+const user = { name: "Amir" };
+
+greet.call(user, "Hello", "!");  
+// Output: Hello Amir!
+</pre>
+<script>
+    function greet(greeting, punctuation) {
+        console.log(greeting + " " + this.name + punctuation);
+        }
+
+const user = { name: "Amir" };
+
+greet.call(user, "Hello", "!");  
+// Output: Hello Amir!
+</script>
+
+
+<br><br>
+<pre>
+2. apply()
+
+Same as call(), but arguments are passed as an array.
+
+function greet(greeting, punctuation) {
+  console.log(greeting + " " + this.name + punctuation);
+}
+
+const user = { name: "Khan" };
+
+greet.apply(user, ["Hi", "!!"]);  
+// Output: Hi Khan!!
+</pre>
+<script>
+    function greet(greeting, punctuation) {
+  console.log(greeting + " " + this.name + punctuation);
+}
+
+const user1 = { name: "Khan" };
+
+greet.apply(user1, ["Hi", "!!"]);  
+// Output: Hi Khan!!
+</script>
+
+
+<br><br>
+<pre>
+3. bind()
+
+Does not call the function immediately.
+
+Instead, it returns a new function with this bound to the given object.
+
+function greet(greeting, punctuation) {
+  console.log(greeting + " " + this.name + punctuation);
+}
+
+const user = { name: "Mohd" };
+
+const boundGreet = greet.bind(user, "Hey");  
+boundGreet("?");  
+// Output: Hey Mohd?
+</pre>
+<script>
+    function greet(greeting, punctuation) {
+  console.log(greeting + " " + this.name + punctuation);
+}
+
+const user2 = { name: "Mohd" };
+
+const boundGreet = greet.bind(user2, "Hey");  
+boundGreet("?");  
+// Output: Hey Mohd?
+
+</script>
+<br><br>
+<pre>
+Summary:
+
+call() → call function immediately, args separately.
+
+apply() → call function immediately, args in array.
+
+bind() → return new function with bound this, call later.
+</pre>
