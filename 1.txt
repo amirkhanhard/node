@@ -1,0 +1,88 @@
+1.
+
+1.react html is executed line byline which means we cant use react before react library
+2. div with id root content will be replaced
+3.crossorigin & script
+4 create hello world ,a parent with two child
+
+
+2.
+http://localhost:1234/
+
+npm
+npm init -y
+
+package.json
+package.lock
+tilde vs caret in version.
+dependency vs dev dependency
+transitive dependency
+node_modules
+gitignore dist node_module .parcel-cache
+
+npx parcel index.html
+npx parcel build index.html
+
+what is .parcel-cache dir?
+
+
+what parcel does?
+dev build
+local server
+hmr hot module replacement
+caching files
+refreshing pages
+file watching algorithm
+image optimization
+minification
+bundling
+compress
+consistent hashing
+code splitting
+diffrential bundling for old browsers.
+diagnostic
+error handling suggestions
+https
+tree shaking - remove unused code
+convers all code into 3 files html css and js
+
+
+about - parcel webpack vite
+npm browsers list 
+
+3.
+
+react element 
+component
+jsx ?
+elements attributes id class anchor image
+babel uses
+
+functional component starts with first letter capital just like a function and it returns jsx.
+component composition - calling functional component into another component
+
+4.
+config driven ui
+swiggy api real data and list all restaurent
+
+5.
+virtual dom, sample code 
+diffing algorithm
+reconcilation
+
+>
+if no dependecy - useeffect called on every render.
+if empty array passed - useeffect is called only intial render (just once)
+if dependecy array passed - 
+
+
+do not create usestate outside functional component
+do not create usestate variable inside if loops etc.
+
+
+
+
+
+
+
+
