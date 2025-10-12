@@ -82,6 +82,78 @@ const User = mongoose.model("User", userSchema, "User");
 
 ======================================================
 
+1.
+npm init -y
+
+2.
+npm i parcel react react-dom
+
+3. remove index.js from package.json
+
+4. update package.json
+"start":"parcel index.html"
+"build":"parcel build index.html"
+
+
+manual commands:
+npx parcel index.html
+npx parcel build index.html
+
+5.
+
+index.html
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="root"></div>
+    <!-- <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script> -->
+    <script type="module" src="./App.js"></script>
+</body>
+
+</html>
+
+
+
+App.js
+
+import React from "react"
+import ReactDOM from "react-dom/client"
+const content = React.createElement("div", { id: "id_1" }, [
+    React.createElement("div", { key: "id_2" }, [
+        React.createElement("h1", { key: "id_3" }, "Hello This is heading"),
+        React.createElement("p", { key: "id_4" }, "Hello This is paragraph. Content goes here")
+    ]),
+    React.createElement("div", { key: "id_5" }, [
+        React.createElement("h1", { key: "id_6" }, "Hello This is heading"),
+        React.createElement("p", { key: "id_7" }, "Hello This is paragraph. Content goes here")
+    ])
+]);
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(content);
+
+
+
+style.css
+h1{
+    color:red;
+}
+
+
+6. npm start
+visit: http://localhost:1234/
+
+
+
 ======================================================
 
 Environment variables must start with VITE_ than we can access them.
