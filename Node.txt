@@ -154,6 +154,36 @@ visit: http://localhost:1234/
 
 
 
+1. install vitest.
+npm i vitest
+
+
+2.crate new file
+/home/amir/www/html/ak/contextTodo/src/App.test.jsx
+
+import { describe, it, expect } from "vitest";
+
+describe("addition goes here ", () => {
+  it("addition goes here ", () => {
+    expect(2 + 2).toBe(4);
+  });
+});
+
+3.package.json - add test:vitest
+{
+  .............
+  "scripts": {
+    .............
+    "test": "vitest"
+    ..........
+  },
+  ............
+}
+
+4. run the command
+npm run test 
+or
+npm test
 ======================================================
 
 Environment variables must start with VITE_ than we can access them.
