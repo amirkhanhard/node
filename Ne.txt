@@ -1,5 +1,200 @@
 Next
 
+
+////////////////////////////////////////////
+
+create next with default value
+
+npx create-next-app@15.3.3 next2/
+Need to install the following packages:
+create-next-app@15.3.3
+Ok to proceed? (y) y
+
+✔ Would you like to use TypeScript? … No / Yes.
+✔ Would you like to use ESLint? … No. / Yes
+✔ Would you like to use Tailwind CSS? … No / Yes.
+✔ Would you like your code inside a `src/` directory? … No. / Yes
+✔ Would you like to use App Router? (recommended) … No / Yes.
+✔ Would you like to use Turbopack for `next dev`? … No / Yes.
+✔ Would you like to customize the import alias (`@/*` by default)? … No. / Yes
+Creating a new Next.js app in /home/amir/www/html/next2.
+
+Using npm.
+
+Initializing project with template: app-tw 
+
+
+Installing dependencies:
+- react
+- react-dom
+- next
+
+Installing devDependencies:
+- typescript
+- @types/node
+- @types/react
+- @types/react-dom
+- @tailwindcss/postcss
+- tailwindcss
+
+
+////////////////////////////////////////////
+
+
+
+npx create-next-app@15.5.6 next2/
+Need to install the following packages:
+create-next-app@15.5.6
+Ok to proceed? (y) y
+
+✔ Would you like to use TypeScript? … No / Yes.
+✔ Which linter would you like to use? › ESLint
+✔ Would you like to use Tailwind CSS? … No / Yes.
+✔ Would you like your code inside a `src/` directory? … No. / Yes
+✔ Would you like to use App Router? (recommended) … No / Yes.
+✔ Would you like to use Turbopack? (recommended) … No / Yes.
+✔ Would you like to customize the import alias (`@/*` by default)? … No. / Yes
+Creating a new Next.js app in /home/amir/www/html/next2.
+
+Using npm.
+
+Initializing project with template: app-tw 
+
+
+Installing dependencies:
+- react
+- react-dom
+- next
+
+Installing devDependencies:
+- typescript
+- @types/node
+- @types/react
+- @types/react-dom
+- @tailwindcss/postcss
+- tailwindcss
+- eslint
+- eslint-config-next
+- @eslint/eslintrc
+
+
+//////////////////////////////////////////////////////////////////
+
+check the value of max watch file
+sudo sysctl -p
+
+
+Add new entry to the system control file.
+echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
+/////////////////////////////////////////////////
+pnpm create next-app@latest next2 --yes
+cd next2
+pnpm dev
+
+
+> added suppressHydrationWarning in content
+
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`} suppressHydrationWarning
+      >
+        {children}
+      </body>
+    </html>
+  );
+}
+////////////////////////////////////////////////
+
+A new version of `create-next-app` is available!
+You can update by running: npm i -g create-next-app
+
+////////////////////////////////////////////
+
+https://mui.com/material-ui/integrations/nextjs/
+Material ui integration with next js
+
+pnpm add @mui/material-nextjs @emotion/cache
+
+pnpm i @mui/material
+
+pnpm i  @emotion/styled
+
+
+///////////////////////////////////////
+
+1. npm init -y
+
+2. npm i typescript
+
+3. install vscode live server ext.
+
+4. for live monitoring changes
+tsc main.ts -w
+
+
+5. tsc --init
+
+tsconfig.json
+{
+  // Visit https://aka.ms/tsconfig to read more about this file
+  "compilerOptions": {
+    // File Layout
+    "rootDir": "./src",
+    "outDir": "./dist",
+    
+    }
+}
+
+6. 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="dist/main.js"></script>
+</head>
+<body>
+    <h1>Install VSCode Live Server </h1>
+
+</body>
+</html>
+
+
+
+///////////////////////////////////////////////////
+
+->to check where global packages installed.
+
+npm root -g
+
+///////////////////////////////////////////////////
+
+-> add following to exclude all directories.
+{
+	-----
+ "include": [
+    "./src"
+  ]
+  -----
+}
+
+///////////////////////////////////////////////////
+
+install ts-node
+
+npm install -g ts-node
+npx ts-node src/main.ts 
+
+///////////////////////////////////////////////////
+
 Types of Routing in Next.js
 
 > Filename and function can be different 
